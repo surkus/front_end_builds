@@ -2,6 +2,7 @@ require_dependency "front_end_builds/application_controller"
 
 module FrontEndBuilds
   class BuildsController < ApplicationController
+    protect_from_forgery with: :null_session
     before_action :set_app!, only: [:create]
 
     def index
