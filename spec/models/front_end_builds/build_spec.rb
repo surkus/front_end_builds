@@ -258,16 +258,7 @@ module FrontEndBuilds
 
       it 'should autoamtically activate a master/automatic activation build' do
         expect(build).to receive(:automatic_activation?).and_return(true)
-        expect(build).to receive(:master?).and_return(true)
         expect(build).to receive(:activate!)
-
-        build.setup!
-      end
-
-      it 'should not active the build if it is not master' do
-        expect(build).to receive(:automatic_activation?).and_return(true)
-        expect(build).to receive(:master?).and_return(false)
-        expect(build).to_not receive(:activate!)
 
         build.setup!
       end
